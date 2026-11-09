@@ -426,3 +426,4 @@ export const MENU_ITEMS: MenuItem[] = [
     tags: ['Customer Craving', 'Exotic'],
   },
 ];
+

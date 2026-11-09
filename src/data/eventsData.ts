@@ -77,3 +77,4 @@ export const UPCOMING_EVENTS: LiveEvent[] = [
     tags: ['Riverside Branch', 'Sunset View', 'Family & Friends', 'BBQ Grills'],
   },
 ];
+

@@ -45,3 +45,4 @@ export const BRANCHES_DATA: BranchInfo[] = [
     image: '/images/riverside_tomorrowland.jpg',
   },
 ];
+

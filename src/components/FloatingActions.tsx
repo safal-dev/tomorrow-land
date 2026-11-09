@@ -53,3 +53,4 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
     </div>
   );
 };
+

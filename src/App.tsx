@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { AtmosphereToggle } from './components/AtmosphereToggle';
-import { BrandStory } from './components/BrandStory';
-import { InteractiveMenu } from './components/InteractiveMenu';
-import { EventsCalendar } from './components/EventsCalendar';
-import { ReviewsShowcase } from './components/ReviewsShowcase';
-import { CareersSection } from './components/CareersSection';
-import { VenuesSection } from './components/VenuesSection';
+import { AnnouncementBar } from './components/AnnouncementBar';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { OrderDrawer } from './components/OrderDrawer';
 import { FloatingActions } from './components/FloatingActions';
+
+import { HomePage } from './pages/HomePage';
+import { MenuPage } from './pages/MenuPage';
+import { SpacePage } from './pages/SpacePage';
+import { EventsPage } from './pages/EventsPage';
+import { ReviewsPage } from './pages/ReviewsPage';
+import { CareersPage } from './pages/CareersPage';
+import { ContactPage } from './pages/ContactPage';
+
 import { CartItem, MenuItem } from './types';
 
-export const App: React.FC = () => {
-  // Day / Night Atmosphere mode: default to night if evening, or day if morning/afternoon
+const AppContent: React.FC = () => {
+  const navigate = useNavigate();
+
+  // Day / Night Atmosphere mode: default based on local hour
   const [atmosphereMode, setAtmosphereMode] = useState<'day' | 'night'>(() => {
     const hour = new Date().getHours();
     return hour >= 6 && hour < 16 ? 'day' : 'night';
@@ -41,7 +46,7 @@ export const App: React.FC = () => {
     try {
       localStorage.setItem('tomorrowland_order_tray', JSON.stringify(cart));
     } catch {
-      // localStorage may fail in private mode
+      // localStorage fallback
     }
   }, [cart]);
 
@@ -80,16 +85,16 @@ export const App: React.FC = () => {
     setIsBookingOpen(true);
   };
 
-  const scrollToMenu = () => {
-    const el = document.getElementById('menu');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleExploreMenu = () => {
+    navigate('/menu');
   };
 
   return (
     <div className={`min-h-screen ${atmosphereMode === 'day' ? 'mode-daylight' : 'mode-nightlife'}`}>
-      {/* Navigation */}
+      {/* Top Special Live Announcement Bar */}
+      <AnnouncementBar onRSVP={handleRSVPEvent} />
+
+      {/* Main Global Navigation */}
       <Navbar
         atmosphereMode={atmosphereMode}
         setAtmosphereMode={setAtmosphereMode}
@@ -98,46 +103,52 @@ export const App: React.FC = () => {
         setIsBookingOpen={setIsBookingOpen}
       />
 
-      {/* Hero: Zero-Face Brand Engine */}
-      <Hero
-        atmosphereMode={atmosphereMode}
-        setIsBookingOpen={setIsBookingOpen}
-        onExploreMenu={scrollToMenu}
-      />
+      {/* Page Routing */}
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                atmosphereMode={atmosphereMode}
+                setAtmosphereMode={setAtmosphereMode}
+                setIsBookingOpen={setIsBookingOpen}
+                onExploreMenu={handleExploreMenu}
+              />
+            }
+          />
+          <Route
+            path="/menu"
+            element={
+              <MenuPage
+                cart={cart}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+                setIsCartOpen={setIsCartOpen}
+              />
+            }
+          />
+          <Route
+            path="/the-space"
+            element={<SpacePage onReserveZone={handleRSVPEvent} />}
+          />
+          <Route
+            path="/events"
+            element={<EventsPage onRSVPEvent={handleRSVPEvent} />}
+          />
+          <Route path="/reviews" element={<ReviewsPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route
+            path="/contact"
+            element={<ContactPage prefilledEvent={prefilledEvent} />}
+          />
+        </Routes>
+      </main>
 
-      {/* Atmosphere Switcher & Hybrid Business Model */}
-      <AtmosphereToggle
-        atmosphereMode={atmosphereMode}
-        setAtmosphereMode={setAtmosphereMode}
-      />
-
-      {/* The Space: 2,660 sq. ft. Architecture & Vivid Interiors Walkthrough */}
-      <BrandStory />
-
-      {/* Interactive Digital Menu with instant WhatsApp Tray */}
-      <InteractiveMenu
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        setIsCartOpen={setIsCartOpen}
-      />
-
-      {/* Live Event & Gig Calendar */}
-      <EventsCalendar onRSVPEvent={handleRSVPEvent} />
-
-      {/* 4.6★ / 278+ Verified Google Reviews Showcase */}
-      <ReviewsShowcase />
-
-      {/* Careers & Active Hiring Posts */}
-      <CareersSection />
-
-      {/* Locations: Main Flagship Hub + Riverside Tomorrowland */}
-      <VenuesSection />
-
-      {/* Editorial Footer */}
+      {/* Shared Global Footer */}
       <Footer setIsBookingOpen={setIsBookingOpen} />
 
-      {/* Modals & Drawers */}
+      {/* Shared Global Modals & Drawers */}
       <BookingModal
         isOpen={isBookingOpen}
         onClose={() => {
@@ -156,13 +167,21 @@ export const App: React.FC = () => {
         clearCart={clearCart}
       />
 
-      {/* Omnipresent Floating Action Buttons */}
+      {/* Omnipresent Floating Action Triggers */}
       <FloatingActions
         cart={cart}
         setIsCartOpen={setIsCartOpen}
         setIsBookingOpen={setIsBookingOpen}
       />
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 };
 

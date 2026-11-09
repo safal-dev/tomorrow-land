@@ -389,3 +389,4 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
     </section>
   );
 };
+

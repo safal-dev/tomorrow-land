@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Menu as MenuIcon, 
   X, 
@@ -7,9 +8,7 @@ import {
   ShoppingBag, 
   Sun, 
   Moon, 
-  Sparkles,
-  MapPin,
-  Briefcase
+  Sparkles
 } from 'lucide-react';
 import { CartItem } from '../types';
 
@@ -30,12 +29,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -45,27 +45,39 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'The Space', href: '#the-space' },
-    { name: 'Digital Menu', href: '#menu' },
-    { name: 'Live Gigs', href: '#events' },
-    { name: 'Reviews (4.6★)', href: '#reviews' },
-    { name: 'Careers', href: '#careers', badge: 'Hiring' },
-    { name: 'Locations', href: '#locations' },
+    { name: 'Home', path: '/' },
+    { name: 'Digital Menu', path: '/menu' },
+    { name: 'The Space', path: '/the-space' },
+    { name: 'Live Gigs', path: '/events' },
+    { name: 'Reviews (4.6★)', path: '/reviews' },
+    { name: 'Careers', path: '/careers', badge: 'Hiring' },
+    { name: 'Locations & Reserve', path: '/contact' },
   ];
+
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-brand-obsidian/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3'
-            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
+          isScrolled || location.pathname !== '/'
+            ? 'bg-brand-obsidian/95 backdrop-blur-md border-b border-white/10 shadow-lg py-3'
+            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo & Brand Identity */}
-          <a href="#" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-brand-gold/60 group-hover:border-brand-gold transition-all shadow-md group-hover:shadow-neon-gold">
               <img
                 src="/images/logo.jpg"
@@ -74,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               />
             </div>
             <div>
-              <span className="font-display font-extrabold tracking-wider text-lg sm:text-xl text-white flex items-center gap-1.5">
+              <span className="font-display font-extrabold tracking-wider text-base sm:text-xl text-white flex items-center gap-1.5">
                 TOMORROWLAND
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
               </span>
@@ -82,24 +94,34 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Cafe & Restro • Kawasoti
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors relative py-1"
-              >
-                {link.name}
-                {link.badge && (
-                  <span className="ml-1.5 px-1.5 py-0.5 text-[9px] font-bold uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
-                    {link.badge}
-                  </span>
-                )}
-              </a>
-            ))}
+          <nav className="hidden xl:flex items-center gap-6">
+            {navLinks.map((link) => {
+              const active = isActive(link.path);
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`text-xs uppercase tracking-wider font-semibold transition-all relative py-1 ${
+                    active
+                      ? 'text-brand-gold font-bold'
+                      : 'text-gray-300 hover:text-brand-gold'
+                  }`}
+                >
+                  {link.name}
+                  {active && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold rounded-full" />
+                  )}
+                  {link.badge && (
+                    <span className="ml-1.5 px-1.5 py-0.5 text-[9px] font-bold uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+                      {link.badge}
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Action Controls */}
@@ -109,8 +131,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setAtmosphereMode(atmosphereMode === 'day' ? 'night' : 'day')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 border ${
                 atmosphereMode === 'day'
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 hover:bg-amber-500/30 shadow-sm'
-                  : 'bg-brand-neonPurple/20 text-purple-300 border-brand-neonPurple/40 hover:bg-brand-neonPurple/30 shadow-sm'
+                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 hover:bg-amber-500/30'
+                  : 'bg-brand-neonPurple/20 text-purple-300 border-brand-neonPurple/40 hover:bg-brand-neonPurple/30'
               }`}
               title="Toggle Day Specialty Cafe or Night Pub Atmosphere"
             >
@@ -153,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-white/5 text-gray-300 hover:text-white border border-white/10"
+              className="xl:hidden p-2 rounded-lg bg-white/5 text-gray-300 hover:text-white border border-white/10"
               aria-label="Open Mobile Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
@@ -164,7 +186,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="fixed inset-0 z-50 xl:hidden">
           <div 
             className="fixed inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(false)}
@@ -172,7 +194,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="fixed top-0 right-0 bottom-0 w-5/6 max-w-sm bg-brand-obsidian border-l border-white/10 p-6 flex flex-col justify-between overflow-y-auto">
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-white/10">
-                <div className="flex items-center gap-2.5">
+                <Link to="/" className="flex items-center gap-2.5">
                   <img
                     src="/images/logo.jpg"
                     alt="TomorrowLand Logo"
@@ -182,7 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <h3 className="font-display font-bold text-white text-base">TOMORROWLAND</h3>
                     <p className="text-[10px] text-brand-gold uppercase tracking-wider">Kawasoti-2, Nawalpur</p>
                   </div>
-                </div>
+                </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-1.5 rounded-lg bg-white/5 text-gray-400 hover:text-white"
@@ -208,22 +230,29 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
 
               {/* Navigation Links */}
-              <div className="flex flex-col gap-3 py-2">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-medium text-gray-200 hover:text-brand-gold border-b border-white/5"
-                  >
-                    <span>{link.name}</span>
-                    {link.badge && (
-                      <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                        {link.badge}
-                      </span>
-                    )}
-                  </a>
-                ))}
+              <div className="flex flex-col gap-2 py-2">
+                {navLinks.map((link) => {
+                  const active = isActive(link.path);
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-xs uppercase tracking-wider font-semibold transition-colors ${
+                        active
+                          ? 'bg-brand-gold/15 text-brand-gold font-bold'
+                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      <span>{link.name}</span>
+                      {link.badge && (
+                        <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                          {link.badge}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 

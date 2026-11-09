@@ -149,3 +149,4 @@ export const HIRING_POSTS: HiringPost[] = [
     isOpen: true,
   },
 ];
+

@@ -234,3 +234,4 @@ export const EventsCalendar: React.FC<EventsCalendarProps> = ({ onRSVPEvent }) =
     </section>
   );
 };
+

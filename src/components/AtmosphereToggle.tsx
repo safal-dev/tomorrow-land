@@ -174,3 +174,4 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
     </section>
   );
 };
+

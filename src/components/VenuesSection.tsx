@@ -149,3 +149,4 @@ export const VenuesSection: React.FC = () => {
     </section>
   );
 };
+
