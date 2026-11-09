@@ -1,225 +1,209 @@
 ---
 name: luxury-editorial-brand-site
 description: >-
-  Builds luxury, high-converting, editorial brand websites (Apricus Cafe & TomorrowLand grade) for any niche
-  (hospitality, cafes, luxury dining, boutique hotels, wellness clubs, lifestyle retail, creative studios).
-  Transforms raw business parameters into an aesthetic, multi-page single-page application with strict editorial typography,
-  zero AI clichés, customer-desire-driven copy, interactive product/menu catalogs, and frictionless WhatsApp conversions.
+  Builds luxury, high-converting, editorial brand websites (Apricus Cafe & TomorrowLand grade) for ANY niche
+  (hospitality, cafes, luxury dining, boutique hotels, wellness clubs, aesthetic clinics, creative studios,
+  architecture firms, luxury retail, bespoke craftsmanship, private members clubs).
+  Transforms raw business parameters into an aesthetic, multi-page web application with strict editorial typography,
+  zero AI clichés, customer-desire-driven copy, interactive catalogs/menus/portfolios, and frictionless WhatsApp conversions.
 ---
 
-# Luxury Editorial Brand Website Engine
+# Universal Luxury Editorial Brand Website Engine
 
-This skill guides the end-to-end creation of high-end, editorial, ultra-converting websites modeled after the world's most atmospheric hospitality and boutique lifestyle destinations (e.g., **Apricus Cafe**, **TomorrowLand Cafe & Restro**).
+This skill guides the end-to-end creation of high-end, editorial, ultra-converting websites modeled after the world's most atmospheric luxury destinations (e.g., **Apricus Cafe**, **TomorrowLand**, **Aman Resorts**, **Aesop**, **Soho House**).
 
-It enforces a strict visual standard: zero AI cliches, zero corporate jargon, flawless typography, and frictionless direct-to-WhatsApp conversion.
+It is strictly **niche-agnostic**: whether the client is a boutique cafe, an eco-luxury resort, a wellness sanctuary, an architectural atelier, a bespoke fashion house, or a private members club, this engine delivers an unforgettable, high-converting digital experience.
 
 ---
 
-## 1. The Input Discovery Parameter Schema
+## 1. The Universal Niche Translation Matrix
 
-When prompted to build a website for any niche, extract or request these **7 core parameter groups**:
+Every business has products, an atmosphere, proof, and a conversion action. Map the user's business into this architecture:
+
+| Component | 🍽️ Hospitality & Dining | 🏨 Boutique Hotels & Resorts | 🌿 Wellness, Spas & Clinics | 📐 Creative Studios & Architecture | 💎 Luxury Retail & Craft | 🍸 Private Clubs & Venues |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Primary Catalog** (`/menu` or `/catalog`) | Digital Food & Cocktail Menu | Villa & Suite Collections | Treatment & Therapy Menu | Selected Works & Case Studies | Curated Object/Fashion Catalog | Membership Tiers & Privileges |
+| **Dual Dimension Switcher** | Daytime Cafe vs. Nighttime Pub | Summer Retreat vs. Winter Chalet | Holistic Wellness vs. Aesthetic Medical | Architectural Build vs. Interior Curation | Permanent Line vs. Seasonal Drop | Daytime Co-working vs. Evening Social |
+| **Spatial / Craft Page** (`/the-space` or `/craft`) | 2,660 Sq. Ft. Industrial Layout | Property Grounds & Panoramic Views | Sanctuary Suites & Hydrotherapy | Material Palette, Atelier & Philosophy | Provenance, Raw Materials & Craft | Multi-Floor Zoning & Private Rooms |
+| **Experiences / Events** (`/events`) | Acoustic Gigs, DJ Sets, Sports Arena | Guided Treks, Wine Tastings, Yoga | Sound Baths, Masterclasses, Detox | Design Talks, Exhibitions, Monograph | Trunk Shows, Private Showrooms | Intimate Gigs, Guest Speakers, Galas |
+| **Social Proof** (`/reviews`) | 4.6★ Google Verified Reviews | Five-Star Guest Reviews & Condé Nast | Client Transformation Feedback | Design Awards (AIA, Dezeen, ArchDaily) | Collector Testimonials & Press | Member Endorsements & Press |
+| **Careers / Team** (`/careers`) | Kitchen, Barista & Bar Crew | Concierge, Guest Relations, Butler | Therapists, Estheticians, Instructors | Architects, 3D Artists, Directors | Master Tailors, Gemologists, Stylists | Hospitality Hosts, Event Directors |
+| **Frictionless Action** (`/contact`) | Instant WhatsApp Pre-Order & Table RSVP | Direct Suite RSVP & WhatsApp Concierge | Appointment Booking & WhatsApp Consult | Project Brief Transmission & Scope Call | Private Viewing RSVP & WhatsApp Concierge | Membership Application & Private Tour |
+
+---
+
+## 2. Universal Input Parameter Discovery Schema
+
+Extract or request these **7 core parameter groups** for any business niche:
 
 ```yaml
-brand_profile:
-  name: "Brand Name (e.g., TomorrowLand Cafe & Restro, Solis Wellness Club)"
-  tagline: "Short poetic essence (e.g., Where Daylight Conversations Melt Into Electric Nights)"
-  location: "Physical address / neighborhood (e.g., Kumarwoti College Line, Kawasoti-2)"
-  sub_locations: ["Secondary branch, scenic outpost, or sister venue if applicable"]
-  architectural_vibe: "Design pedigree (e.g., 2,660 sq. ft. Industrial-Chic by Vivid Interiors)"
-  operating_hours:
-    day_phase: "07:00 AM – 04:00 PM (Artisan coffee, study booths, casual dining)"
-    night_phase: "04:00 PM – Late (Craft bar, live acoustic gigs, DJ sets, screenings)"
+niche_profile:
+  niche_category: "hospitality | boutique_stay | wellness_clinic | creative_studio | luxury_retail | private_club"
+  brand_name: "Brand or Studio Name"
+  tagline: "Short poetic essence (e.g., Where Architectural Rigor Meets Raw Sanctuary)"
+  location: "Physical address / neighborhood / flagship city"
+  sub_locations: ["Secondary property, satellite studio, or scenic retreat if applicable"]
+  architectural_vibe: "Interior design style (e.g., Raw Wabi-Sabi, Industrial Chic, Minimalist Brutalism)"
+  operational_dual_aspect:
+    aspect_one: "Name & hours (e.g., Sunlit Morning Coffee / Holistic Daytime Treatments / Residential Architecture)"
+    aspect_two: "Name & hours (e.g., Electric Night Pub / Evening Thermal Sanctuary / Commercial Masterplans)"
 
-customer_desires: # TRANSLATE ICPS TO VISCERAL DESIRES (Never use MBA terms)
-  primary:
-    who: "Students & Gen-Z / Creative Workers"
-    desire: "Affordable comfort food, fast 100 Mbps Wi-Fi, study booths, great coffee, aesthetic photo backdrops"
-  secondary:
-    who: "Evening Crowds & Sports Fans"
-    desire: "Ice-cold beers, signature cocktails, spicy sharing platters, big-screen match roar, live acoustic music"
-  tertiary:
-    who: "Families, Milestone Celebrators & Highway Commuters"
-    desire: "Ample parking, spacious group seating, birthday cake celebrations, quick 15-minute turnaround"
+customer_desires: # TRANSLATE ALL DEMOGRAPHICS INTO VISCERAL HUMAN DESIRES
+  audience_group_a:
+    who: "Primary customer (e.g., Busy local professionals, creative founders, bridal parties)"
+    desire: "What emotional or physical itch are they scratching? (e.g., Quiet focus, effortless pampering, high-status celebration)"
+  audience_group_b:
+    who: "Secondary crowd (e.g., Weekend travelers, design enthusiasts, milestone celebrators)"
+    desire: "Unforgettable sensory atmosphere, photogenic backdrops, seamless group hospitality"
 
-core_catalog: # PRODUCTS / MENU / SERVICES (Real names & local prices)
-  categories:
-    - id: "signature-bites"
-      name: "Signature Bites & Local Favorites"
-      items:
-        - name: "Jhol Momo"
-          price: 180
-          description: "Steamed chicken dumplings submerged in a fragrant, spiced sesame-tomato broth."
-          isPopular: true
-          isSpicy: true
-    - id: "bar-cocktails"
-      name: "Craft Cocktails & Spirits"
-    - id: "artisan-coffee"
-      name: "Specialty Coffee & Beverages"
+core_catalog: # PRODUCTS, SERVICES, SUITES, OR CASE STUDIES
+  category_name: "Signature Collection / Signature Treatments / Signature Bites"
+  items:
+    - name: "Item / Service / Suite Name"
+      price: "Clear local currency price or 'Inquire for Custom Scope'"
+      description: "Visceral, sensory description highlighting ingredients, materials, or outcomes."
+      badge: "Crowd Pick | Signature | Bespoke | Organic"
 
-atmospheric_zones: # SPACES UNDER ONE ROOF
-  - name: "Daylight Coffee Bar & Booths"
-  - name: "Central Industrial Dining Hall"
-  - name: "The Live Music Stage"
-  - name: "Upper Open-Air Ventilated Lounge"
+spatial_zones_or_craft_pillars: # 4 TO 6 ZONES OR PILLARS
+  - name: "Zone / Pillar Name"
+    description: "Atmospheric description of how the guest experiences this physical or creative zone."
 
 social_proof:
-  rating: 4.6
-  review_count: 278
-  platform: "Google Verified Reviews"
-  highlight_reviews:
-    - author: "Local Guest"
-      quote: "Best Jhol Momo and chicken chili in town! The industrial interior feels like a luxury cafe in Pokhara."
-      rating: 5
+  rating: "4.8"
+  review_count: "200+"
+  platform: "Google Reviews / Condé Nast Traveler / Architectural Digest / Trustpilot"
+  highlight_quotes:
+    - author: "Verified Client / Guest"
+      quote: "Direct quote highlighting taste, craft, feeling, or turnaround speed."
 
-careers_and_culture:
-  roles:
-    - title: "Senior Specialty Barista"
-      department: "Coffee & Bar"
-      type: "Full-time"
-      compensation: "Rs. 22,000 – 32,000/mo + shared tips"
-  perks:
-    - "Free chef-prepared shift meals"
-    - "Prompt monthly salary + tip sharing"
-    - "Hands-on barista & cocktail training"
-    - "Flexible student shifts"
+culture_and_talent:
+  open_roles:
+    - title: "Role Title"
+      department: "Service / Culinary / Design / Clinical"
+      compensation: "Transparent salary + tips/bonus structure"
+  perks: # ALWAYS OUTLINE ICONS, NEVER EMOJIS
+    - title: "Shift Meals / Studio Retreats / Health Cover"
+      detail: "Concise human explanation"
 
 conversion_channels:
-  primary_phone: "+977 9806919349"
-  whatsapp_number: "9779806919349"
-  google_maps_url: "https://maps.google.com/..."
+  primary_phone: "+Country Code Number"
+  whatsapp_number: "Country Code + Number (no spaces or dashes)"
+  google_maps_or_booking_url: "URL"
 ```
 
 ---
 
-## 2. The "Anti-AI" Visual & Language Purity Standard
+## 3. The "Anti-AI" Purity Standard (Universal Across All Niches)
 
-To ensure the output feels like it was crafted by an elite London/Tokyo branding agency rather than generated by an AI, **strictly enforce these 5 bans**:
+Websites produced with this skill must feel bespoke, mature, and crafted by an elite design atelier. **Zero tolerance for generic AI patterns**:
 
 | ❌ STRICTLY FORBIDDEN (AI Cliche) | ✅ REQUIRED REPLACEMENT |
 | :--- | :--- |
-| **4-Pointed Sparkle Icon** (`Sparkles` from Lucide) | Use domain-specific Lucide outline icons (`Coffee`, `Flame`, `UtensilsCrossed`, `Music`, `MapPin`) or clean typography. |
-| **Pulsing Dots & Radar Pings** (`animate-ping`) | Clean, solid typography badges or subtle borders. |
-| **Pills in Navigation** (`[HIRING]`, `(4.6★)`) | Clean text links only in the header: `Home`, `Menu`, `The Space`, `Live Gigs`, `Reviews`, `Careers`, `Contact`. |
-| **Cheesy Emojis as Icons** (`🍛`, `💰`, `☕`, `🎉`) | Sleek Lucide outline icons inside frosted dark glass circles (`w-11 h-11 rounded-xl bg-brand-gold/10 text-brand-gold`). |
-| **Corporate MBA / AI Jargon** (*"The Hybrid Business Model"*, *"Spatial Zoning"*, *"Conversion Pathways"*, *"Monetize Asset Footprint"*) | **Customer Desires**: *"Your Morning Coffee. Your Evening Celebration."*, *"A Space For Every Mood"*, *"Reserve Your Table"*, *"Kawasoti’s Favorite Gathering Spot"*. |
+| **4-Pointed Sparkle Icon** (`Sparkles` from Lucide) | Use contextual Lucide outline icons matching the niche: `Coffee`, `Compass`, `Bed`, `Sparkle` (never the 4-point AI one), `Sparkles` is banned. Use `Flame`, `Leaf`, `Layers`, `Eye`, `Palette`, `UtensilsCrossed`, `Clock`, `ShieldCheck`. |
+| **Pulsing Status Dots** (`animate-ping`) | Clean, solid typography labels or subtle borders. No neon radar pings. |
+| **Badges in the Navigation** (`[HIRING]`, `(4.6★)`) | Clean text links only in the header: `Home`, `Catalog/Menu`, `The Space/Craft`, `Experiences/Events`, `Reviews`, `Careers`, `Contact`. |
+| **Cheesy Emojis as Icons** (`🍛`, `💰`, `☕`, `🎉`, `🏨`, `🌿`) | Hand-picked Lucide outline icons inside frosted dark glass cards (`w-11 h-11 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center`). |
+| **Corporate MBA / AI Jargon** (*"The Hybrid Business Model"*, *"Spatial Zoning"*, *"Conversion Pathways"*, *"Monetize Asset Footprint"*, *"Synergistic Client Value"*) | **Visceral Customer Desires**: *"Your Morning Focus. Your Evening Celebration."*, *"A Corner For Every Mood"*, *"Reserve Your Suite"*, *"Where Craft Meets Rest"*. |
 
 ---
 
-## 3. The Golden Rules of Visual Hierarchy
+## 4. The Golden Rules of Visual Hierarchy (The 2-2-1 Rule)
 
-### Rule A: The Strict First-Look Hero Rule
-Every page hero (especially Home and Careers) must adhere to the **2-2-1 formula**:
-1. **Strict 2-Line Heading**: Line 1 and Line 2 must each be wrapped in a `<span className="block whitespace-nowrap">` with fluid responsive font sizes (`clamp()` or `text-2xl sm:text-4xl md:text-5xl lg:text-6xl`). It must NEVER wrap into 3 lines.
-2. **Strict 2-Line Description**: Balanced into 2 concise, human sentences wrapped in `<span className="block whitespace-nowrap">` at tablet/desktop resolutions. It must NEVER wrap into 4 lines.
-3. **Exactly 1 Clean Primary CTA**: Single high-contrast pill button (`Explore Digital Menu →` or `Explore Open Roles ↓`). No secondary buttons, no top announcement bars, no clutter.
+Every page hero across **any niche** must adhere to the **2-2-1 formula**:
 
-```tsx
-{/* Canonical Strict 2-Line Hero Template */}
-<h1 className="font-serif text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] drop-shadow-2xl">
-  <span className="block whitespace-nowrap">Where Daylight Conversations</span>
-  <span className="block mt-1 sm:mt-2 italic font-normal text-brand-gold whitespace-nowrap">
-    Melt Into Electric Nights.
-  </span>
-</h1>
+1. **Strict 2-Line Heading**: Line 1 and Line 2 must each be wrapped in a `<span className="block whitespace-nowrap">` with fluid responsive font scales (`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl`). It must NEVER wrap into 3 lines on any screen.
+2. **Strict 2-Line Description**: Balanced into 2 concise, human sentences wrapped in `<span className="block whitespace-nowrap">` on tablet/desktop. It must NEVER wrap into 4 lines.
+3. **Exactly 1 Clean Primary CTA**: A single high-contrast pill button (`Explore Collection →`, `Reserve A Table →`, `Book A Suite →`, `Inquire For Project →`).
 
-<p className="mt-4 sm:mt-5 text-xs sm:text-base md:text-lg text-gray-200 max-w-3xl font-light leading-relaxed drop-shadow">
-  <span className="block whitespace-nowrap">
-    Kawasoti’s favorite gathering spot on Kumarwoti College Line.
-  </span>
-  <span className="block whitespace-nowrap mt-1">
-    Fresh coffee & good food by day, live music & cold drinks by night.
-  </span>
-</p>
+### Canonical 2-Line Hero Examples Across Niches:
 
-<div className="mt-7 sm:mt-8">
-  <Link
-    to="/menu"
-    className="px-8 py-3.5 rounded-full bg-brand-gold hover:bg-amber-400 text-brand-obsidian font-bold text-xs sm:text-sm tracking-widest uppercase transition-all duration-300 shadow-2xl hover:shadow-neon-gold inline-flex items-center gap-2 group hover:scale-105 active:scale-95"
-  >
-    <span>Explore Digital Menu</span>
-    <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
-  </Link>
-</div>
-```
+- **Hospitality / Cafe**:
+  > **Heading:** `Where Daylight Conversations` / *`Melt Into Electric Nights.`*  
+  > **Desc:** `Kawasoti’s favorite gathering spot on Kumarwoti College Line.` / `Fresh coffee & good food by day, live music & cold drinks by night.`  
+  > **CTA:** `Explore Digital Menu →`
+
+- **Boutique Eco-Resort / Hotel**:
+  > **Heading:** `Where Himalayan Silence` / *`Meets Uncompromising Luxury.`*  
+  > **Desc:** `Six private cedar-glass villas perched above the Pokhara valley ridge.` / `Farm-to-table dining by day, fireside stargazing and stillness by night.`  
+  > **CTA:** `Reserve Your Villa →`
+
+- **Aesthetic Clinic & Holistic Spa**:
+  > **Heading:** `Where Clinical Precision` / *`Nurtures Timeless Vitality.`*  
+  > **Desc:** `Kathmandu’s premier sanctuary for bespoke dermatology and thermal wellness.` / `Personalized skin protocols by morning, restorative hydrotherapy by dusk.`  
+  > **CTA:** `Explore Treatment Menu →`
+
+- **Architecture & Interior Atelier**:
+  > **Heading:** `Where Raw Monolithic Form` / *`Frames Daily Human Life.`*  
+  > **Desc:** `Bespoke residential and commercial architecture crafted across the Himalayas.` / `Thoughtful material honesty by design, enduring sensory spaces for generations.`  
+  > **CTA:** `View Selected Works →`
+
+- **Bespoke Luxury Tailoring / Jewelry**:
+  > **Heading:** `Where Rare Heritage Craft` / *`Adorns Modern Individuality.`*  
+  > **Desc:** `Hand-loomed cashmere, bespoke suiting, and conflict-free ceremonial jewelry.` / `Private atelier consultations in London, crafted for a lifetime of distinction.`  
+  > **CTA:** `Explore Curated Collection →`
 
 ---
 
-## 4. Multi-Page Site Map & Page Blueprint
+## 5. Universal Multi-Page Architecture (SPA with React Router)
 
-Never build a monolithic single-page wall of text. Structure the project as an elegant **7-page SPA** using `react-router-dom`:
+Never build a monolithic, single-page infinite-scroll site. Structure the project into a clean **7-page SPA** using `react-router-dom`:
 
 ```text
 src/
 ├── pages/
-│   ├── HomePage.tsx       # Hero, Day/Night Atmosphere Toggle, Top Picks, Story Teaser, Gigs, Reviews
-│   ├── MenuPage.tsx       # Tabbed interactive digital menu, category filters, WhatsApp order tray
-│   ├── SpacePage.tsx      # Vivid Interiors story, multi-zone seating explorer, architectural gallery
-│   ├── EventsPage.tsx     # Acoustic Fridays, Saturday DJ, sports screenings calendar with RSVP
-│   ├── ReviewsPage.tsx    # 4.6★ / 278+ Google verified reviews with category filters
-│   ├── CareersPage.tsx    # Unified editorial hero, outline icon perks, 5 accordion roles
-│   └── ContactPage.tsx    # Table & Party RSVP form, branch selector, Google Maps directions
+│   ├── HomePage.tsx       # Hero, Dual-Aspect Atmosphere Toggle, Top Highlights, Craft Teaser, Social Proof
+│   ├── CatalogPage.tsx    # Interactive digital catalog (Menu, Suites, Treatments, or Case Studies) with filter tabs
+│   ├── ExperiencePage.tsx # The physical venue, grounds, atelier, or material craftsmanship gallery
+│   ├── EventsPage.tsx     # Calendar, masterclasses, retreats, exhibitions, or live sessions with RSVP
+│   ├── ReviewsPage.tsx    # Verified reviews, rating breakdown, client testimonials, press mentions
+│   ├── CareersPage.tsx    # Single clean hero, Lucide outline perks (no emojis!), open positions accordion
+│   └── ContactPage.tsx    # Frictionless booking/inquiry form with canvas-confetti and direct WhatsApp hook
 ```
-
-### Key Page Blueprints
-
-#### 1. Home Page (`HomePage.tsx`)
-- **Atmosphere Switcher**: An interactive Day vs. Night toggle that flips between daytime cafe (espresso, study booths, Wi-Fi, 15-min lunch) and evening lounge (cocktails, live stage, big screens, shisha lounge).
-- **Featured Dishes**: High-contrast photography cards with pricing, spicy badges, and direct pre-order triggers.
-- **Venue Sneak Peek**: Stat counters (`2,660 Sq. Ft.`, `2 Branches`, `4.6★ Rating`).
-
-#### 2. Digital Menu Page (`MenuPage.tsx`)
-- Tabbed category navigation (Coffee, Signature Momos, Pizza & Burgers, Mains & Biryani, Bar & Cocktails).
-- Dietary filters: `All`, `Crowd Pick`, `Spicy`, `Vegetarian`.
-- Dish modal with flavor notes, prep time, and drink pairing suggestions.
-- Real-time pre-order tray with instant WhatsApp checkout autofill.
-
-#### 3. Careers Page (`CareersPage.tsx`)
-- Single, non-duplicate editorial hero with atmospheric interior background.
-- Clean perks grid using Lucide outline icons (`UtensilsCrossed`, `Wallet`, `Coffee`, `Clock`) inside dark glass cards.
-- Accordion cards for open jobs showing Shift Timing, Monthly Salary Range, Key Responsibilities, and WhatsApp Apply button.
-
-#### 4. Contact & Table RSVP Page (`ContactPage.tsx`)
-- Interactive reservation form capturing: Branch, Guest Count, Date, Time, Occasion, and Seating Preference (e.g. Non-Smoking Family Booth vs. Upstairs Ventilated Lounge).
-- Upon submit: triggers celebratory confetti (`canvas-confetti`) and generates pre-filled WhatsApp message.
 
 ---
 
-## 5. Frictionless WhatsApp Pre-Order & RSVP Mechanics
+## 6. Frictionless WhatsApp Deep-Link Conversion Mechanics
 
-The primary business goal of local hospitality sites is zero-friction table turns and guaranteed billings before arrival. Implement direct WhatsApp URI handlers:
+For maximum conversion across emerging and metropolitan markets, build instant, URI-encoded WhatsApp deep-links for every interaction:
 
-### A. Pre-Order Cart Template
+### Universal Order / Pre-Order Cart
 ```typescript
-export const generateWhatsAppOrderUrl = (phone: string, cart: CartItem[], total: number) => {
-  const itemsList = cart.map(item => `• ${item.quantity}x ${item.name} (Rs. ${item.price * item.quantity})`).join('\n');
-  const message = `👋 *NEW PRE-ORDER — TOMORROWLAND CAFE*
+export const generateWhatsAppOrderUrl = (phone: string, brandName: string, items: Array<{ name: string; price: number; quantity: number }>, total: number) => {
+  const itemsList = items.map(item => `• ${item.quantity}x ${item.name} (Rs. ${item.price * item.quantity})`).join('\n');
+  const message = `👋 *NEW PRE-ORDER — ${brandName.toUpperCase()}*
 ━━━━━━━━━━━━━━━━━━━━
 ${itemsList}
 ━━━━━━━━━━━━━━━━━━━━
 💰 *Estimated Total:* Rs. ${total}
-⏰ *Arrival Time:* In 20 minutes
-📍 *Branch:* TomorrowLand Main Hub (College Line)
+⏰ *Preferred Time:* In 20-30 minutes
+📍 *Pickup / Dine-In*
 
-Please confirm if this order is accepted and begin preparation!`;
+Please confirm receipt and begin preparation!`;
 
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 };
 ```
 
-### B. Table & Milestone Event RSVP Template
+### Universal Reservation / Booking / Consultation RSVP
 ```typescript
-export const generateWhatsAppRSVPUrl = (phone: string, data: ReservationData) => {
-  const message = `🎉 *RESERVATION / EVENT INQUIRY*
+export const generateWhatsAppBookingUrl = (phone: string, brandName: string, data: {
+  fullName: string;
+  phone: string;
+  serviceOrTier: string;
+  date: string;
+  time: string;
+  guestOrScopeCount: string;
+  notes?: string;
+}) => {
+  const message = `✨ *INQUIRY & RESERVATION — ${brandName.toUpperCase()}*
 ━━━━━━━━━━━━━━━━━━━━
-• *Name:* ${data.name}
+• *Client Name:* ${data.fullName}
 • *Phone:* ${data.phone}
-• *Location:* ${data.branch}
-• *Date & Time:* ${data.date} at ${data.time}
-• *Guests:* ${data.guests}
-• *Occasion:* ${data.occasion}
-• *Seating:* ${data.seating}
-${data.notes ? `• *Special Requests:* ${data.notes}\n` : ''}━━━━━━━━━━━━━━━━━━━━
-Please confirm table availability!`;
+• *Selected Service / Tier:* ${data.serviceOrTier}
+• *Preferred Date:* ${data.date} at ${data.time}
+• *Party Size / Project Scope:* ${data.guestOrScopeCount}
+${data.notes ? `• *Special Notes:* ${data.notes}\n` : ''}━━━━━━━━━━━━━━━━━━━━
+Please confirm availability and next steps!`;
 
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 };
@@ -227,52 +211,38 @@ Please confirm table availability!`;
 
 ---
 
-## 6. Technical Stack & Deployment Configuration
+## 7. Universal Technical Stack & Design Tokens
 
-Always scaffold the project with:
-- **Engine**: Vite + React 18 + TypeScript.
-- **Styling**: Tailwind CSS with custom palette (`brand-gold`, `brand-obsidian`, `brand-noir`, `brand-cardDark`).
-- **Typography**: Google Fonts:
-  - Display/Headings: `Cinzel` & `Cormorant Garamond` (editorial serif).
-  - Body: `Plus Jakarta Sans` or `Inter` (high-legibility geometric sans).
-- **Icons**: `lucide-react` (outline style only, strictly curated).
-- **Celebration Feedback**: `canvas-confetti` on form submissions.
-- **Vercel SPA Configuration** (`vercel.json`):
+Always scaffold or configure with:
+
+- **Framework**: React 18 + Vite + TypeScript + `react-router-dom`.
+- **Styling**: Tailwind CSS with custom dark luxury tokens:
+  - `brand-obsidian` (`#0B0C10` or `#090A0F`)
+  - `brand-noir` (`#12131C` or `#14151F`)
+  - `brand-cardDark` (`#181926`)
+  - `brand-gold` (`#E5B25D` or `#D4AF37`)
+  - `brand-champagne` (`#F3E5AB` or `#ECE5D8`)
+- **Typography Pairing**:
+  - **Headings / Display**: `Cinzel` or `Cormorant Garamond` (classic high-fashion editorial serif).
+  - **Body / Interface**: `Plus Jakarta Sans`, `Inter`, or `Manrope` (clean, geometric, ultra-legible).
+- **Interactions**:
+  - `canvas-confetti` on form submissions.
+  - Smooth page transitions and auto-scroll-to-top on route change.
+- **Hosting**: Pre-configured `vercel.json` with SPA catch-all rewrites:
   ```json
   {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
-    ],
-    "headers": [
-      {
-        "source": "/images/(.*)",
-        "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-        ]
-      }
-    ]
+    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
   }
   ```
 
 ---
 
-## 7. Execution Runbook & Verification Checklist
+## 8. Final Delivery Quality Checklist
 
-Before presenting the completed website to the user, run this mandatory audit:
-
-1. **Build Verification**:
-   - Run `npm run build` to confirm zero TypeScript errors, zero missing imports, and successful Vite bundling.
-2. **AI Cliché Sweep**:
-   - `grep -rn "Sparkles" src/` must return `0` results.
-   - `grep -rn "animate-ping" src/` must return `0` results.
-   - Verify no green status pill badges exist in the navigation bar.
-3. **Jargon Sweep**:
-   - `grep -rni "hybrid business\|spatial zoning\|monetiz" src/` must return `0` results.
-4. **Hero Line Count Verification**:
-   - Check rendered Home and Careers hero sections:
-     - Is the heading strictly 2 lines?
-     - Is the description strictly 2 lines?
-     - Is there strictly 1 CTA button?
-5. **Mobile Responsiveness**:
-   - Verify hamburger navigation opens smoothly, closes on route navigation, and locks background scrolling.
-   - Test floating WhatsApp pre-order button.
+Before finalizing any brand site in any niche, verify:
+1. `npm run build` succeeds with **0 errors**.
+2. `grep -rn "Sparkles" src/` returns **0 matches**.
+3. `grep -rn "animate-ping" src/` returns **0 matches**.
+4. No green pills or emoji icons in navigation or perks.
+5. Home and Careers heroes strictly adhere to the **2-Line Heading, 2-Line Description, 1 CTA** rule.
+6. Mobile navigation drawer operates cleanly with backdrop blur and touch targets.
