@@ -1,11 +1,7 @@
 import React from 'react';
 import { EventsCalendar } from '../components/EventsCalendar';
 
-interface EventsPageProps {
-  onRSVPEvent: (eventTitle: string) => void;
-}
-
-export const EventsPage: React.FC<EventsPageProps> = ({ onRSVPEvent }) => {
+export const EventsPage: React.FC = () => {
   return (
     <div className="pt-24 pb-16 bg-brand-obsidian min-h-screen">
       {/* Editorial Page Header */}
@@ -23,8 +19,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ onRSVPEvent }) => {
       </div>
 
       {/* Events Calendar Engine */}
-      <EventsCalendar onRSVPEvent={onRSVPEvent} />
+      <EventsCalendar />
     </div>
   );
 };
-

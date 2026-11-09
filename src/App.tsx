@@ -70,7 +70,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className={`min-h-screen ${atmosphereMode === 'day' ? 'mode-daylight' : 'mode-nightlife'}`}>
-      {/* Clean Global Navigation (No night pub toggle, no book table, no shop icon) */}
+      {/* Clean Global Navigation */}
       <Navbar />
 
       {/* Main Page Routing */}
@@ -96,14 +96,8 @@ const AppContent: React.FC = () => {
               />
             }
           />
-          <Route
-            path="/the-space"
-            element={<SpacePage onReserveZone={() => {}} />}
-          />
-          <Route
-            path="/events"
-            element={<EventsPage onRSVPEvent={() => {}} />}
-          />
+          <Route path="/the-space" element={<SpacePage />} />
+          <Route path="/events" element={<EventsPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/contact" element={<ContactPage />} />

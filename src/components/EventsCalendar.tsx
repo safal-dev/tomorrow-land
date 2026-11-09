@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
-  Calendar as CalendarIcon, 
   Clock, 
   Music, 
-  Tv, 
   Sparkles, 
   Users, 
   ArrowRight,
@@ -14,11 +13,7 @@ import {
 import { LiveEvent } from '../types';
 import { UPCOMING_EVENTS } from '../data/eventsData';
 
-interface EventsCalendarProps {
-  onRSVPEvent: (eventTitle: string) => void;
-}
-
-export const EventsCalendar: React.FC<EventsCalendarProps> = ({ onRSVPEvent }) => {
+export const EventsCalendar: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'acoustic' | 'dj' | 'screening'>('all');
   const [copiedEventId, setCopiedEventId] = useState<string | null>(null);
 
@@ -43,25 +38,21 @@ export const EventsCalendar: React.FC<EventsCalendarProps> = ({ onRSVPEvent }) =
   };
 
   return (
-    <section id="events" className="py-20 bg-brand-noir relative overflow-hidden">
+    <section id="events" className="py-12 bg-brand-noir relative overflow-hidden">
       {/* Decorative Neon Ring */}
       <div className="absolute -bottom-32 right-1/4 w-[600px] h-[600px] rounded-full bg-brand-neonPurple/10 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        {/* Section Controls */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <div>
             <span className="text-xs uppercase tracking-widest text-brand-gold font-bold flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-brand-gold" />
               Live Stage & Sports Arena
             </span>
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mt-2">
-              Upcoming Events & Gigs
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mt-1">
+              Upcoming Gigs & Match Screenings
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base mt-3 max-w-xl font-light">
-              From intimate Friday acoustic candlelight jams to high-voltage Saturday neon DJ nights 
-              and giant-screen cricket screenings, your weekends happen here.
-            </p>
           </div>
 
           {/* Category Filter Pills */}
@@ -182,13 +173,13 @@ export const EventsCalendar: React.FC<EventsCalendarProps> = ({ onRSVPEvent }) =
 
                   {/* Action buttons */}
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => onRSVPEvent(event.title)}
+                    <Link
+                      to="/contact"
                       className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-500 text-black text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-all shadow-md flex items-center justify-center gap-1.5"
                     >
                       <Ticket className="w-3.5 h-3.5" />
                       <span>Reserve Table</span>
-                    </button>
+                    </Link>
 
                     <button
                       onClick={() => handleShare(event)}
@@ -222,16 +213,15 @@ export const EventsCalendar: React.FC<EventsCalendarProps> = ({ onRSVPEvent }) =
               curated group food packages, sparkler celebrations, and dedicated bar service.
             </p>
           </div>
-          <button
-            onClick={() => onRSVPEvent('Private Event & Milestone Celebration')}
+          <Link
+            to="/contact"
             className="w-full md:w-auto px-8 py-3.5 rounded-full bg-white text-black font-bold text-xs uppercase tracking-wider hover:bg-brand-gold transition-colors shrink-0 flex items-center justify-center gap-2"
           >
             <span>Inquire Venue Hire</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
   );
 };
-

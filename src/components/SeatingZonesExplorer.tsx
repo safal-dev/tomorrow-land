@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
-  Maximize2, 
   Users, 
-  Wind, 
-  Tv, 
-  Coffee, 
-  Sparkles, 
   CheckCircle2, 
   Calendar,
   Layers
@@ -115,13 +111,7 @@ const VENUE_ZONES: Zone[] = [
   },
 ];
 
-interface SeatingZonesExplorerProps {
-  onReserveZone: (zoneName: string) => void;
-}
-
-export const SeatingZonesExplorer: React.FC<SeatingZonesExplorerProps> = ({
-  onReserveZone,
-}) => {
+export const SeatingZonesExplorer: React.FC = () => {
   const [activeZone, setActiveZone] = useState<Zone>(VENUE_ZONES[0]);
 
   return (
@@ -216,13 +206,13 @@ export const SeatingZonesExplorer: React.FC<SeatingZonesExplorerProps> = ({
 
             {/* Bottom Actions */}
             <div className="pt-6 border-t border-white/5 space-y-3">
-              <button
-                onClick={() => onReserveZone(`${activeZone.name} (${activeZone.type})`)}
+              <Link
+                to="/contact"
                 className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-brand-gold via-amber-400 to-brand-bronze text-brand-obsidian font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all shadow-xl hover:shadow-neon-gold flex items-center justify-center gap-2"
               >
                 <Calendar className="w-4 h-4 text-black" />
-                <span>Reserve Tables in {activeZone.name.split('&')[0].trim()}</span>
-              </button>
+                <span>Inquire Table in {activeZone.name.split('&')[0].trim()}</span>
+              </Link>
 
               <p className="text-[11px] text-center text-gray-400">
                 Floor reservation is free • Instant WhatsApp confirmation
@@ -234,4 +224,3 @@ export const SeatingZonesExplorer: React.FC<SeatingZonesExplorerProps> = ({
     </section>
   );
 };
-

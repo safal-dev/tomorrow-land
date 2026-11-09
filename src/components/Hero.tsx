@@ -54,29 +54,31 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-brand-obsidian via-brand-obsidian/70 to-black/60" />
       <div className="absolute inset-0 bg-black/30" />
 
-      {/* Clean, Non-Cluttered Hero Content (2-Line Heading, 2-Line Description, 1 CTA) */}
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center z-10 pt-16">
-        {/* 2-Liner Heading */}
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1] drop-shadow-2xl">
-          Where Daylight Conversations
-          <span className="block mt-1 italic font-normal text-brand-gold">
+      {/* Clean, Non-Cluttered Hero Content (Strict 2-Line Heading, Strict 2-Line Description, 1 Single CTA) */}
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center z-10 pt-14">
+        {/* Strict 2-Liner Heading */}
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold tracking-tight text-white leading-[1.12] drop-shadow-2xl">
+          <span className="block sm:whitespace-nowrap">Where Daylight Conversations</span>
+          <span className="block mt-1.5 italic font-normal text-brand-gold sm:whitespace-nowrap">
             Melt Into Electric Nights.
           </span>
         </h1>
 
-        {/* 2-Liner Description Text */}
-        <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl font-light leading-relaxed drop-shadow">
-          Kawasoti’s premier 2,660 sq. ft. industrial-chic lounge on Kumarwoti College Line.
-          <span className="block sm:mt-1">
-            Artisanal specialty coffee by day, vibrant live music & culinary gatherings by dusk.
+        {/* Strict 2-Liner Description Text */}
+        <p className="mt-5 text-sm sm:text-base md:text-lg text-gray-200 max-w-4xl font-light leading-relaxed drop-shadow">
+          <span className="block sm:whitespace-nowrap">
+            Kawasoti’s premier 2,660 sq. ft. industrial-chic venue on Kumarwoti College Line.
+          </span>
+          <span className="block sm:whitespace-nowrap mt-1">
+            Artisanal specialty coffee by day, vibrant live music & lounge gatherings by dusk.
           </span>
         </p>
 
         {/* Just 1 Single Clean CTA */}
-        <div className="mt-8 sm:mt-10">
+        <div className="mt-8 sm:mt-9">
           <Link
             to="/menu"
-            className="px-9 py-4 rounded-full bg-brand-gold hover:bg-amber-400 text-brand-obsidian font-bold text-xs sm:text-sm tracking-widest uppercase transition-all duration-300 shadow-2xl hover:shadow-neon-gold inline-flex items-center gap-2 group hover:scale-105 active:scale-95"
+            className="px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-brand-gold hover:bg-amber-400 text-brand-obsidian font-bold text-xs sm:text-sm tracking-widest uppercase transition-all duration-300 shadow-2xl hover:shadow-neon-gold inline-flex items-center gap-2 group hover:scale-105 active:scale-95"
           >
             <span>Explore Digital Menu</span>
             <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
@@ -84,7 +86,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Minimal Subtle Carousel Dots */}
-        <div className="mt-14 flex items-center gap-2">
+        <div className="mt-12 flex items-center gap-2">
           {heroImages.map((img, idx) => (
             <button
               key={img.url}

@@ -2,11 +2,7 @@ import React from 'react';
 import { BrandStory } from '../components/BrandStory';
 import { SeatingZonesExplorer } from '../components/SeatingZonesExplorer';
 
-interface SpacePageProps {
-  onReserveZone: (zoneName: string) => void;
-}
-
-export const SpacePage: React.FC<SpacePageProps> = ({ onReserveZone }) => {
+export const SpacePage: React.FC = () => {
   return (
     <div className="pt-24 pb-16 bg-brand-obsidian min-h-screen">
       {/* Editorial Page Header */}
@@ -27,8 +23,7 @@ export const SpacePage: React.FC<SpacePageProps> = ({ onReserveZone }) => {
       <BrandStory />
 
       {/* Interactive Seating Zones Explorer */}
-      <SeatingZonesExplorer onReserveZone={onReserveZone} />
+      <SeatingZonesExplorer />
     </div>
   );
 };
-
