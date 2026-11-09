@@ -5,7 +5,6 @@ import {
   Calendar, 
   Clock, 
   Users, 
-  Sparkles, 
   Phone, 
   MapPin, 
   Send,
@@ -82,9 +81,8 @@ Hi TomorrowLand team, please confirm table availability for my booking!`;
           {!isSubmitted ? (
             <div>
               <div className="mb-8 text-center sm:text-left">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-brand-gold flex items-center justify-center sm:justify-start gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                  Direct Reservation Engine
+                <span className="text-[10px] uppercase font-bold tracking-widest text-brand-gold">
+                  Table & Event Reservations
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
                   Book Your Table or Milestone Event

@@ -30,8 +30,8 @@ export const Navbar: React.FC = () => {
     { name: 'Digital Menu', path: '/menu' },
     { name: 'The Space', path: '/the-space' },
     { name: 'Live Gigs', path: '/events' },
-    { name: 'Reviews (4.6★)', path: '/reviews' },
-    { name: 'Careers', path: '/careers', badge: 'Hiring' },
+    { name: 'Reviews', path: '/reviews' },
+    { name: 'Careers', path: '/careers' },
     { name: 'Locations & Contact', path: '/contact' },
   ];
 
@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo & Name */}
+          {/* Brand Logo & Name (Clean, no pulsing dot) */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-brand-gold/60 group-hover:border-brand-gold transition-all shadow-md group-hover:shadow-neon-gold">
               <img
@@ -60,9 +60,8 @@ export const Navbar: React.FC = () => {
               />
             </div>
             <div>
-              <span className="font-display font-extrabold tracking-wider text-base sm:text-xl text-white flex items-center gap-1.5">
+              <span className="font-display font-extrabold tracking-wider text-base sm:text-xl text-white">
                 TOMORROWLAND
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
               </span>
               <span className="block text-[10px] tracking-widest text-brand-gold uppercase font-medium">
                 Cafe & Restro • Kawasoti
@@ -70,7 +69,7 @@ export const Navbar: React.FC = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links (Clean, no AI badges or pills) */}
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => {
               const active = isActive(link.path);
@@ -87,11 +86,6 @@ export const Navbar: React.FC = () => {
                   {link.name}
                   {active && (
                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold rounded-full" />
-                  )}
-                  {link.badge && (
-                    <span className="ml-1.5 px-1.5 py-0.5 text-[9px] font-bold uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
-                      {link.badge}
-                    </span>
                   )}
                 </Link>
               );
@@ -156,11 +150,6 @@ export const Navbar: React.FC = () => {
                       }`}
                     >
                       <span>{link.name}</span>
-                      {link.badge && (
-                        <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                          {link.badge}
-                        </span>
-                      )}
                     </Link>
                   );
                 })}

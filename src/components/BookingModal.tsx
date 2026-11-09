@@ -4,7 +4,6 @@ import {
   Calendar, 
   Clock, 
   Users, 
-  Sparkles, 
   Phone, 
   PartyPopper, 
   CheckCircle2, 
@@ -94,8 +93,7 @@ Hi TomorrowLand team, please confirm table availability for my booking!`;
           <div>
             {/* Modal Header */}
             <div className="mb-6">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-brand-gold flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+              <span className="text-[10px] uppercase font-bold tracking-widest text-brand-gold">
                 Table Reservation & Event RSVP
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">

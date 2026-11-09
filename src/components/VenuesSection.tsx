@@ -5,7 +5,6 @@ import {
   Clock, 
   Navigation, 
   CheckCircle2, 
-  Sparkles,
   ExternalLink,
   Car
 } from 'lucide-react';

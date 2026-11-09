@@ -121,14 +121,14 @@ export const SeatingZonesExplorer: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-xs uppercase tracking-widest text-brand-gold font-bold flex items-center justify-center gap-1.5">
             <Layers className="w-4 h-4 text-brand-gold" />
-            2,660 Sq. Ft. Spatial Experience
+            Six Curated Seating Spaces
           </span>
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mt-2">
-            Explore Our Multi-Zone Venue
+            Find Your Favorite Spot
           </h2>
           <p className="text-gray-300 text-sm sm:text-base mt-3 font-light">
-            Every corner of TomorrowLand has been intentionally architected for a specific mood. 
-            Select any zone below to preview the space and reserve your spot.
+            Every corner of TomorrowLand is crafted for your perfect visit — from quiet corners for studying 
+            to spacious tables for birthday celebrations and sports screenings.
           </p>
         </div>
 

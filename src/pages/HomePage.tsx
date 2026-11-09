@@ -147,7 +147,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="grid grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-2xl bg-brand-cardDark border border-white/5">
                   <span className="text-2xl font-display font-bold text-brand-gold block">2,660</span>
-                  <span className="text-xs text-gray-400">Square Feet Footprint</span>
+                  <span className="text-xs text-gray-400">Sq. Ft. Lounge Space</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-brand-cardDark border border-white/5">
                   <span className="text-2xl font-display font-bold text-emerald-400 block">2</span>

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   MapPin, 
   Phone, 
-  Clock, 
-  Sparkles
+  Clock
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -147,8 +146,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Quick Navigation & Legal */}
           <div>
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-brand-gold" />
+            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4">
               Quick Explore
             </h4>
             <ul className="space-y-2 text-xs">

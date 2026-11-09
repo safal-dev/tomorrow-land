@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Building2, 
-  Sparkles, 
+  Palette, 
   Maximize2, 
   Flame, 
   Compass, 
@@ -95,21 +95,21 @@ export const BrandStory: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
               <Layers className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">Multi-Floor Spatial Zoning</h3>
+            <h3 className="text-lg font-bold text-white mb-2">A Space For Every Mood</h3>
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-              Carefully engineered layout offering distinct zones: ground floor serene family dining, 
-              cozy study corners, and a dedicated upstairs ventilated floor for shisha and evening pub crowds.
+              From comfortable study corners with fast Wi-Fi and family dining zones on the main floor, 
+              to an open-air ventilated lounge upstairs for shisha and evening celebrations.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-brand-cardDark border border-white/5 relative group hover:border-brand-neonPurple/40 transition-all">
             <div className="w-12 h-12 rounded-2xl bg-brand-neonPurple/10 text-brand-neonPurple flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <Sparkles className="w-6 h-6" />
+              <Palette className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">Custom Neon & Raw Industrialism</h3>
+            <h3 className="text-lg font-bold text-white mb-2">Custom Neon & Warm Industrial Design</h3>
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-              Exposed brickwork, matte black iron beams, ambient Edison bulbs, and custom neon installations 
-              that turn everyday moments into organic social media capital.
+              Warm Edison bulbs, exposed brickwork, custom glowing neon signs, and photo-ready corners 
+              made for gathering and sharing memories with friends.
             </p>
           </div>
 
@@ -117,10 +117,10 @@ export const BrandStory: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
               <Compass className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">Dual Property Footprint</h3>
+            <h3 className="text-lg font-bold text-white mb-2">Two Scenic Locations</h3>
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-              Following explosive demand at our Kumarwoti College Line flagship, our second property 
-              <strong> Riverside Tomorrowland</strong> brings scenic riverfront breezes and weekend BBQ retreats.
+              Enjoy the bustling city energy at our Kumarwoti College Line hub, or soak in the 
+              open-air riverfront breezes and weekend BBQ retreats at Riverside Tomorrowland.
             </p>
           </div>
         </div>

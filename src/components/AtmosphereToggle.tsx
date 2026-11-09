@@ -13,48 +13,47 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
   return (
     <section className="py-16 sm:py-20 relative overflow-hidden bg-brand-noir/60 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header Centered on Customer Desires */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs uppercase tracking-widest text-brand-gold font-bold">
-            The Hybrid Business Model
+            A Place for Every Hour
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-2">
-            One Landmark Space. Two Distinct Souls.
+            Your Morning Coffee. Your Evening Celebration.
           </h2>
-          <p className="text-gray-300 text-sm sm:text-base mt-4 font-light">
-            Designed to never compromise between the focused morning creator and the weekend 
-            nightlife enthusiast. Toggle below to experience how TomorrowLand transforms from 
-            first light to late midnight.
+          <p className="text-gray-300 text-sm sm:text-base mt-3 font-light">
+            Whether you need a sunlit corner with fast Wi-Fi to focus on your studies, or a lively 
+            table surrounded by friends, live acoustic music, and cold drinks.
           </p>
 
           {/* Interactive Toggle Switch */}
           <div className="mt-8 inline-flex p-1.5 rounded-full bg-black/60 border border-white/10 shadow-lg">
             <button
               onClick={() => setAtmosphereMode('day')}
-              className={`flex items-center gap-2.5 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 ${
+              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 ${
                 atmosphereMode === 'day'
-                  ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-black shadow-md'
+                  ? 'bg-amber-500 text-black shadow-md'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
               <Sun className="w-4 h-4" />
-              <span>Daytime Sanctuary (7 AM – 4 PM)</span>
+              <span>Daytime Cafe (7 AM – 4 PM)</span>
             </button>
             <button
               onClick={() => setAtmosphereMode('night')}
-              className={`flex items-center gap-2.5 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 ${
+              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 ${
                 atmosphereMode === 'night'
-                  ? 'bg-gradient-to-r from-purple-600 to-brand-neonPurple text-white shadow-md'
+                  ? 'bg-purple-600 text-white shadow-md'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
               <Moon className="w-4 h-4" />
-              <span>Nightlife Arena (4 PM – Late)</span>
+              <span>Evening Lounge (4 PM – Late)</span>
             </button>
           </div>
         </div>
 
-        {/* Dynamic Interactive Cards Comparison */}
+        {/* Dynamic Cards Focused on Customer Desires */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Day Mode Card */}
           <div
@@ -71,8 +70,8 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
                   <Coffee className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">The Daytime Sanctuary</h3>
-                  <p className="text-xs text-amber-400 font-medium">Specialty Coffee & Fast-Casual Lounge</p>
+                  <h3 className="text-xl font-bold text-white">Morning Brews & Relaxed Dining</h3>
+                  <p className="text-xs text-amber-400 font-medium">Specialty coffee, quiet booths & fresh food</p>
                 </div>
               </div>
               <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/20">
@@ -88,7 +87,7 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
                 <p className="text-xs text-gray-200">
-                  Natural daylight pouring over custom wooden tables, lush hanging plants, and cozy booths.
+                  Natural sunlight, lush indoor plants, comfortable seating, and the aroma of fresh coffee.
                 </p>
               </div>
             </div>
@@ -96,19 +95,19 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-center gap-2.5">
                 <Wifi className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>High-Speed 100 Mbps Wi-Fi & laptop-charging power points at tables</span>
+                <span>Fast 100 Mbps Wi-Fi & laptop charging plugs at your table</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Coffee className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Locally sourced single-origin Arabica espresso, pour-overs & velvet flat whites</span>
+                <span>Single-origin espresso, velvet flat whites, and fresh fruit smoothies</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Lightning 15-minute quick-serve lunch menus tailored to tight college timetables</span>
+                <span>Quick-serve lunch menu ready in 15 minutes between college classes</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Users className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Spacious booth layouts accommodating student study groups and highway travelers</span>
+                <span>Cozy private booths for studying, friendly catchups, or a relaxing highway stop</span>
               </li>
             </ul>
           </div>
@@ -128,12 +127,12 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
                   <Music className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">The Nightlife Arena</h3>
-                  <p className="text-xs text-purple-300 font-medium">Pub, Acoustic Gigs & Live Sports</p>
+                  <h3 className="text-xl font-bold text-white">Nightlife, Music & Group Feasts</h3>
+                  <p className="text-xs text-purple-300 font-medium">Live acoustic gigs, match screenings & cold drinks</p>
                 </div>
               </div>
               <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-purple-500/10 text-purple-300 border border-purple-500/20">
-                04:00 PM – 10:00 PM+
+                04:00 PM – Late
               </span>
             </div>
 
@@ -145,7 +144,7 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
                 <p className="text-xs text-gray-200">
-                  Custom neon installations, moody industrial lighting, and a buzzing evening crowd.
+                  Warm neon glow, mood lighting, buzzing crowd, and live stage music.
                 </p>
               </div>
             </div>
@@ -153,19 +152,19 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-center gap-2.5">
                 <Music className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>Weekly live acoustic Friday gigs and high-voltage Saturday DJ sets</span>
+                <span>Live acoustic sessions every Friday and high-energy DJ weekends</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Tv className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>Giant 4K projection match screenings for Nepal cricket, football & international leagues</span>
+                <span>Giant 4K projector screens to cheer for Nepal national cricket and football</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <GlassWater className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>Full craft bar serving chilled draught beers, signature neon cocktails & mocktails</span>
+                <span>Chilled draft beers, signature cocktails, mocktails, and sharing platters</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Wind className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>Dedicated ventilated hookah lounge floor with premium exotic shisha blends</span>
+                <span>Dedicated upper-floor lounge with fresh ventilation for premium hookah flavors</span>
               </li>
             </ul>
           </div>
@@ -174,4 +173,3 @@ export const AtmosphereToggle: React.FC<AtmosphereToggleProps> = ({
     </section>
   );
 };
-

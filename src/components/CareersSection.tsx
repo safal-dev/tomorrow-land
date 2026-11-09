@@ -8,9 +8,11 @@ import {
   ChevronUp, 
   Send, 
   CheckCircle2, 
-  Sparkles,
   MessageCircle,
-  X
+  X,
+  UtensilsCrossed,
+  Wallet,
+  Coffee
 } from 'lucide-react';
 import { HiringPost } from '../types';
 import { HIRING_POSTS } from '../data/careersData';
@@ -60,44 +62,52 @@ export const CareersSection: React.FC = () => {
       <div className="absolute top-1/2 left-0 w-80 h-80 bg-brand-gold/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            We Are Actively Hiring
+        {/* Team Perks Grid (Clean Lucide Icons, No Emojis, Luxury Editorial Glass Cards) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16 max-w-4xl mx-auto">
+          <div className="p-5 rounded-2xl bg-brand-cardDark border border-white/5 text-center flex flex-col items-center hover:border-brand-gold/30 transition-all">
+            <div className="w-11 h-11 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-3">
+              <UtensilsCrossed className="w-5 h-5" />
+            </div>
+            <h4 className="text-white font-bold text-xs sm:text-sm">Free Shift Meals</h4>
+            <p className="text-gray-400 text-[11px] mt-1">Chef-prepared meals on every shift</p>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mt-1">
-            Build Tomorrow With Us
-          </h2>
-          <p className="text-gray-300 text-sm sm:text-base mt-3 font-light">
-            We don't just serve food and drinks—we cultivate Kawasoti's cultural heartbeat. 
-            Join our high-energy hospitality team with top regional compensation, chef-curated meals, 
-            supportive leadership, and clear growth trajectories.
-          </p>
+
+          <div className="p-5 rounded-2xl bg-brand-cardDark border border-white/5 text-center flex flex-col items-center hover:border-brand-gold/30 transition-all">
+            <div className="w-11 h-11 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-3">
+              <Wallet className="w-5 h-5" />
+            </div>
+            <h4 className="text-white font-bold text-xs sm:text-sm">Fair Pay & Tips</h4>
+            <p className="text-gray-400 text-[11px] mt-1">On-time monthly salary + tip shares</p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-brand-cardDark border border-white/5 text-center flex flex-col items-center hover:border-brand-gold/30 transition-all">
+            <div className="w-11 h-11 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-3">
+              <Coffee className="w-5 h-5" />
+            </div>
+            <h4 className="text-white font-bold text-xs sm:text-sm">Skill Training</h4>
+            <p className="text-gray-400 text-[11px] mt-1">Hands-on espresso & bar crafting</p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-brand-cardDark border border-white/5 text-center flex flex-col items-center hover:border-brand-gold/30 transition-all">
+            <div className="w-11 h-11 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-3">
+              <Clock className="w-5 h-5" />
+            </div>
+            <h4 className="text-white font-bold text-xs sm:text-sm">Student-Friendly Hours</h4>
+            <p className="text-gray-400 text-[11px] mt-1">Flexible shifts for college students</p>
+          </div>
         </div>
 
-        {/* Culture & Perks Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="p-4 rounded-2xl bg-brand-cardDark border border-white/5 text-center">
-            <span className="text-2xl mb-1 block">🍛</span>
-            <h4 className="text-white font-bold text-xs sm:text-sm">Free Staff Meals</h4>
-            <p className="text-gray-400 text-[11px] mt-0.5">Nutritious meals on every shift</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-brand-cardDark border border-white/5 text-center">
-            <span className="text-2xl mb-1 block">💰</span>
-            <h4 className="text-white font-bold text-xs sm:text-sm">Competitive Pay & Tips</h4>
-            <p className="text-gray-400 text-[11px] mt-0.5">Prompt monthly salary + tip shares</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-brand-cardDark border border-white/5 text-center">
-            <span className="text-2xl mb-1 block">☕</span>
-            <h4 className="text-white font-bold text-xs sm:text-sm">Specialty Masterclasses</h4>
-            <p className="text-gray-400 text-[11px] mt-0.5">Professional espresso & cocktail training</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-brand-cardDark border border-white/5 text-center">
-            <span className="text-2xl mb-1 block">🎓</span>
-            <h4 className="text-white font-bold text-xs sm:text-sm">Student-Friendly Shifts</h4>
-            <p className="text-gray-400 text-[11px] mt-0.5">Flexible hours for Kumarwoti students</p>
-          </div>
+        {/* Section Heading for Open Positions */}
+        <div className="text-center max-w-xl mx-auto mb-10">
+          <span className="text-xs uppercase tracking-widest text-brand-gold font-bold">
+            Available Positions
+          </span>
+          <h2 className="font-serif text-2xl sm:text-4xl font-bold text-white mt-1.5">
+            Select a Role to Apply
+          </h2>
+          <p className="text-gray-400 text-xs sm:text-sm mt-2 font-light">
+            Tap any role to view shift details, compensation, and apply in seconds.
+          </p>
         </div>
 
         {/* Open Job Listings Accordion */}

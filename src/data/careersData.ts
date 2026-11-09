@@ -125,7 +125,7 @@ export const HIRING_POSTS: HiringPost[] = [
     title: 'Social Media Creator & Live Event Host',
     department: 'Media & Events',
     type: 'Part-time',
-    location: 'TomorrowLand Venue & Hybrid Remote',
+    location: 'TomorrowLand Venue & On-Location (Kawasoti)',
     timing: 'Flexible (Focus on Event Evenings)',
     salaryRange: 'Rs. 15,000 – 25,000 / month (Project-based or Part-time)',
     experience: 'Active TikTok / Instagram portfolio of short-form food/lifestyle reels',
@@ -134,7 +134,7 @@ export const HIRING_POSTS: HiringPost[] = [
       'Film aesthetic 4K video clips of food preparation, drinks, and crowds.',
       'Edit snappy TikTok and Instagram Reels using trending audio.',
       'Coordinate with featured musicians and DJs for promotional shoutouts.',
-      'Help build the digital footprint of Tomorrowland as Kawasoti’s cultural epicenter.',
+      'Share the story and energy of Tomorrowland as Kawasoti’s favorite gathering spot.',
     ],
     requirements: [
       'Smartphone with excellent 4K camera capabilities (iPhone or flagship Android).',

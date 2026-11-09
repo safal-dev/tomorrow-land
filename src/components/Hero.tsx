@@ -57,20 +57,20 @@ export const Hero: React.FC = () => {
       {/* Clean, Non-Cluttered Hero Content (Strict 2-Line Heading, Strict 2-Line Description, 1 Single CTA) */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center z-10 pt-14">
         {/* Strict 2-Liner Heading */}
-        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold tracking-tight text-white leading-[1.12] drop-shadow-2xl">
-          <span className="block sm:whitespace-nowrap">Where Daylight Conversations</span>
-          <span className="block mt-1.5 italic font-normal text-brand-gold sm:whitespace-nowrap">
+        <h1 className="font-serif text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] drop-shadow-2xl">
+          <span className="block whitespace-nowrap">Where Daylight Conversations</span>
+          <span className="block mt-1 sm:mt-2 italic font-normal text-brand-gold whitespace-nowrap">
             Melt Into Electric Nights.
           </span>
         </h1>
 
         {/* Strict 2-Liner Description Text */}
-        <p className="mt-5 text-sm sm:text-base md:text-lg text-gray-200 max-w-4xl font-light leading-relaxed drop-shadow">
-          <span className="block sm:whitespace-nowrap">
-            Kawasoti’s premier 2,660 sq. ft. industrial-chic venue on Kumarwoti College Line.
+        <p className="mt-4 sm:mt-5 text-xs sm:text-base md:text-lg text-gray-200 max-w-3xl font-light leading-relaxed drop-shadow">
+          <span className="block whitespace-nowrap">
+            Kawasoti’s favorite gathering spot on Kumarwoti College Line.
           </span>
-          <span className="block sm:whitespace-nowrap mt-1">
-            Artisanal specialty coffee by day, vibrant live music & lounge gatherings by dusk.
+          <span className="block whitespace-nowrap mt-1">
+            Fresh coffee & good food by day, live music & cold drinks by night.
           </span>
         </p>
 

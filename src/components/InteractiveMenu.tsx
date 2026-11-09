@@ -3,14 +3,13 @@ import {
   Search, 
   Flame, 
   Leaf, 
-  Sparkles, 
   Plus, 
   Minus, 
   ShoppingBag, 
   Clock, 
   MessageCircle, 
   X, 
-  ChevronRight,
+  ChevronRight, 
   Info,
   GlassWater,
   CheckCircle2
@@ -144,7 +143,6 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
                   : 'bg-white/5 text-gray-300 hover:bg-white/10'
               }`}
             >
-              <Sparkles className="w-3 h-3 text-brand-gold" />
               <span>Crowd Favorites</span>
             </button>
             <button
@@ -258,8 +256,7 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
                     {/* Left Badges */}
                     <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 max-w-[70%]">
                       {item.isPopular && (
-                        <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-gold text-black text-[10px] font-extrabold uppercase tracking-wider shadow">
-                          <Sparkles className="w-2.5 h-2.5 fill-black" />
+                        <span className="px-2.5 py-1 rounded-full bg-brand-gold text-black text-[10px] font-extrabold uppercase tracking-wider shadow">
                           Crowd Pick
                         </span>
                       )}

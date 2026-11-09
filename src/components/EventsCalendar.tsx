@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   Clock, 
   Music, 
-  Sparkles, 
   Users, 
   ArrowRight,
   Ticket,
@@ -46,8 +45,7 @@ export const EventsCalendar: React.FC = () => {
         {/* Section Controls */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <div>
-            <span className="text-xs uppercase tracking-widest text-brand-gold font-bold flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-brand-gold" />
+            <span className="text-xs uppercase tracking-widest text-brand-gold font-bold">
               Live Stage & Sports Arena
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mt-1">

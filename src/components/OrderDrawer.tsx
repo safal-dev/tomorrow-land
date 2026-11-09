@@ -7,7 +7,6 @@ import {
   Clock, 
   MessageCircle, 
   ShoppingBag, 
-  Sparkles,
   ArrowRight,
   Flame
 } from 'lucide-react';
