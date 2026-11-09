@@ -1,17 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Sparkles, 
   ArrowRight, 
-  Calendar, 
-  Star, 
-  Coffee, 
   Flame, 
   Music, 
-  MapPin, 
   Layers, 
-  ShoppingBag,
-  ExternalLink,
+  Star,
   ChevronRight
 } from 'lucide-react';
 import { Hero } from '../components/Hero';
@@ -23,15 +17,11 @@ import { REVIEWS_DATA } from '../data/reviewsData';
 interface HomePageProps {
   atmosphereMode: 'day' | 'night';
   setAtmosphereMode: (mode: 'day' | 'night') => void;
-  setIsBookingOpen: (open: boolean) => void;
-  onExploreMenu: () => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
   atmosphereMode,
   setAtmosphereMode,
-  setIsBookingOpen,
-  onExploreMenu,
 }) => {
   // Signature featured dishes for Home Teaser
   const featuredDishes = [
@@ -49,12 +39,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="bg-brand-obsidian">
-      {/* 1. Hero: The Atmosphere Engine */}
-      <Hero
-        atmosphereMode={atmosphereMode}
-        setIsBookingOpen={setIsBookingOpen}
-        onExploreMenu={onExploreMenu}
-      />
+      {/* 1. Hero: Pure Visual First Look (2-Line Heading, 2-Line Description, 1 Single CTA) */}
+      <Hero />
 
       {/* 2. Experiential Day-to-Night Dual Soul Toggle */}
       <AtmosphereToggle
@@ -62,7 +48,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         setAtmosphereMode={setAtmosphereMode}
       />
 
-      {/* 3. Signature Taste Showcase (Visual-First, Clean) */}
+      {/* 3. Signature Taste Showcase */}
       <section className="py-20 bg-brand-obsidian relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -273,12 +259,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <span className="text-[11px] text-emerald-400 font-semibold">
                       Free Entry
                     </span>
-                    <button
-                      onClick={() => setIsBookingOpen(true)}
+                    <Link
+                      to="/events"
                       className="px-4 py-2 rounded-xl bg-brand-gold text-black text-xs font-bold uppercase tracking-wider hover:opacity-90"
                     >
-                      Reserve Spot
-                    </button>
+                      View Event
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -331,36 +317,6 @@ export const HomePage: React.FC<HomePageProps> = ({
             >
               <span>Read all 278+ Google & Facebook Reviews</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Bottom Call-to-Action Bar */}
-      <section className="py-16 bg-gradient-to-r from-brand-cardDark via-black to-brand-cardDark border-t border-white/10 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs uppercase font-bold tracking-widest text-brand-gold">
-            Step Into Tomorrow
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
-            Ready to Experience TomorrowLand?
-          </h2>
-          <p className="text-gray-300 text-sm max-w-xl mx-auto font-light">
-            Whether for your morning double shot flat white, afternoon jhol momo craving, 
-            or high-voltage weekend lounge session.
-          </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              onClick={() => setIsBookingOpen(true)}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-brand-gold text-brand-obsidian font-bold text-xs uppercase tracking-wider hover:opacity-95 shadow-neon-gold"
-            >
-              Book Table / Event RSVP
-            </button>
-            <Link
-              to="/menu"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider border border-white/15"
-            >
-              Explore Digital Menu
             </Link>
           </div>
         </div>

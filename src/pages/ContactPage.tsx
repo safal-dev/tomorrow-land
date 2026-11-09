@@ -286,3 +286,4 @@ Hi TomorrowLand team, please confirm table availability for my booking!`;
     </div>
   );
 };
+

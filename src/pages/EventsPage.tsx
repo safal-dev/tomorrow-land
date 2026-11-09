@@ -27,3 +27,4 @@ export const EventsPage: React.FC<EventsPageProps> = ({ onRSVPEvent }) => {
     </div>
   );
 };
+

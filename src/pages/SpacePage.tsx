@@ -31,3 +31,4 @@ export const SpacePage: React.FC<SpacePageProps> = ({ onReserveZone }) => {
     </div>
   );
 };
+

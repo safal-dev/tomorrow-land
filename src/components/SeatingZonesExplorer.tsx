@@ -234,3 +234,4 @@ export const SeatingZonesExplorer: React.FC<SeatingZonesExplorerProps> = ({
     </section>
   );
 };
+

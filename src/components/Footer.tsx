@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   MapPin, 
   Phone, 
@@ -6,11 +7,7 @@ import {
   Sparkles
 } from 'lucide-react';
 
-interface FooterProps {
-  setIsBookingOpen: (open: boolean) => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ setIsBookingOpen }) => {
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-gray-400 border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
       {/* Background glow */}
@@ -138,12 +135,12 @@ export const Footer: React.FC<FooterProps> = ({ setIsBookingOpen }) => {
                 </a>
               </li>
               <li className="pt-2">
-                <button
-                  onClick={() => setIsBookingOpen(true)}
-                  className="w-full py-2 px-3 rounded-xl bg-brand-gold/15 text-brand-gold border border-brand-gold/30 hover:bg-brand-gold hover:text-black font-bold text-xs uppercase transition-all"
+                <Link
+                  to="/contact"
+                  className="inline-block w-full text-center py-2 px-3 rounded-xl bg-brand-gold/15 text-brand-gold border border-brand-gold/30 hover:bg-brand-gold hover:text-black font-bold text-xs uppercase tracking-wider transition-all"
                 >
-                  Reserve Table / Event RSVP
-                </button>
+                  Locations & Table Inquiries
+                </Link>
               </li>
             </ul>
           </div>
@@ -156,32 +153,32 @@ export const Footer: React.FC<FooterProps> = ({ setIsBookingOpen }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#the-space" className="hover:text-brand-gold transition-colors">
+                <Link to="/the-space" className="hover:text-brand-gold transition-colors">
                   The Space & Architecture (2,660 Sq. Ft.)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#menu" className="hover:text-brand-gold transition-colors">
+                <Link to="/menu" className="hover:text-brand-gold transition-colors">
                   Interactive Digital Menu & Prices
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#events" className="hover:text-brand-gold transition-colors">
+                <Link to="/events" className="hover:text-brand-gold transition-colors">
                   Upcoming Acoustic Gigs & Sports Screenings
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#reviews" className="hover:text-brand-gold transition-colors">
+                <Link to="/reviews" className="hover:text-brand-gold transition-colors">
                   Verified Google Reviews (4.6★ / 278 Reviews)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#careers" className="hover:text-brand-gold transition-colors flex items-center gap-1.5">
+                <Link to="/careers" className="hover:text-brand-gold transition-colors flex items-center gap-1.5">
                   <span>Careers & Open Positions</span>
                   <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">
                     HIRING
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

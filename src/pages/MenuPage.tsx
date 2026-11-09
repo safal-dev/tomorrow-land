@@ -41,3 +41,4 @@ export const MenuPage: React.FC<MenuPageProps> = ({
     </div>
   );
 };
+

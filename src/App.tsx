@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { AnnouncementBar } from './components/AnnouncementBar';
 import { Footer } from './components/Footer';
-import { BookingModal } from './components/BookingModal';
-import { OrderDrawer } from './components/OrderDrawer';
 import { FloatingActions } from './components/FloatingActions';
 
 import { HomePage } from './pages/HomePage';
@@ -18,15 +15,13 @@ import { ContactPage } from './pages/ContactPage';
 import { CartItem, MenuItem } from './types';
 
 const AppContent: React.FC = () => {
-  const navigate = useNavigate();
-
-  // Day / Night Atmosphere mode: default based on local hour
+  // Day / Night Atmosphere mode for theme
   const [atmosphereMode, setAtmosphereMode] = useState<'day' | 'night'>(() => {
     const hour = new Date().getHours();
     return hour >= 6 && hour < 16 ? 'day' : 'night';
   });
 
-  // WhatsApp Pre-Order Cart
+  // Pre-Order Tray Cart state for menu
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
       const saved = localStorage.getItem('tomorrowland_order_tray');
@@ -36,17 +31,14 @@ const AppContent: React.FC = () => {
     }
   });
 
-  // Modal states
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [prefilledEvent, setPrefilledEvent] = useState<string | undefined>(undefined);
 
   // Sync cart to localStorage
   useEffect(() => {
     try {
       localStorage.setItem('tomorrowland_order_tray', JSON.stringify(cart));
     } catch {
-      // localStorage fallback
+      // fallback
     }
   }, [cart]);
 
@@ -76,34 +68,12 @@ const AppContent: React.FC = () => {
     });
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  const handleRSVPEvent = (eventTitle: string) => {
-    setPrefilledEvent(eventTitle);
-    setIsBookingOpen(true);
-  };
-
-  const handleExploreMenu = () => {
-    navigate('/menu');
-  };
-
   return (
     <div className={`min-h-screen ${atmosphereMode === 'day' ? 'mode-daylight' : 'mode-nightlife'}`}>
-      {/* Top Special Live Announcement Bar */}
-      <AnnouncementBar onRSVP={handleRSVPEvent} />
+      {/* Clean Global Navigation (No night pub toggle, no book table, no shop icon) */}
+      <Navbar />
 
-      {/* Main Global Navigation */}
-      <Navbar
-        atmosphereMode={atmosphereMode}
-        setAtmosphereMode={setAtmosphereMode}
-        cart={cart}
-        setIsCartOpen={setIsCartOpen}
-        setIsBookingOpen={setIsBookingOpen}
-      />
-
-      {/* Page Routing */}
+      {/* Main Page Routing */}
       <main>
         <Routes>
           <Route
@@ -112,8 +82,6 @@ const AppContent: React.FC = () => {
               <HomePage
                 atmosphereMode={atmosphereMode}
                 setAtmosphereMode={setAtmosphereMode}
-                setIsBookingOpen={setIsBookingOpen}
-                onExploreMenu={handleExploreMenu}
               />
             }
           />
@@ -130,49 +98,23 @@ const AppContent: React.FC = () => {
           />
           <Route
             path="/the-space"
-            element={<SpacePage onReserveZone={handleRSVPEvent} />}
+            element={<SpacePage onReserveZone={() => {}} />}
           />
           <Route
             path="/events"
-            element={<EventsPage onRSVPEvent={handleRSVPEvent} />}
+            element={<EventsPage onRSVPEvent={() => {}} />}
           />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/careers" element={<CareersPage />} />
-          <Route
-            path="/contact"
-            element={<ContactPage prefilledEvent={prefilledEvent} />}
-          />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
 
       {/* Shared Global Footer */}
-      <Footer setIsBookingOpen={setIsBookingOpen} />
+      <Footer />
 
-      {/* Shared Global Modals & Drawers */}
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => {
-          setIsBookingOpen(false);
-          setPrefilledEvent(undefined);
-        }}
-        prefilledEvent={prefilledEvent}
-      />
-
-      <OrderDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-      />
-
-      {/* Omnipresent Floating Action Triggers */}
-      <FloatingActions
-        cart={cart}
-        setIsCartOpen={setIsCartOpen}
-        setIsBookingOpen={setIsBookingOpen}
-      />
+      {/* Clean WhatsApp Floating Quick Button */}
+      <FloatingActions />
     </div>
   );
 };

@@ -8,13 +8,14 @@ import {
   Minus, 
   ShoppingBag, 
   Clock, 
-  Wine, 
-  MessageCircle,
-  X,
-  Check,
-  ChevronRight
+  MessageCircle, 
+  X, 
+  ChevronRight,
+  Info,
+  GlassWater,
+  CheckCircle2
 } from 'lucide-react';
-import { MenuItem, MenuCategory, CartItem } from '../types';
+import { MenuItem, CartItem } from '../types';
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menuData';
 
 interface InteractiveMenuProps {
@@ -33,6 +34,7 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [dietaryFilter, setDietaryFilter] = useState<'all' | 'veg' | 'spicy' | 'popular'>('all');
+  const [detailItem, setDetailItem] = useState<MenuItem | null>(null);
 
   // Filtered menu items
   const filteredItems = useMemo(() => {
@@ -77,27 +79,29 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
     window.open(`https://wa.me/9779806919349?text=${encoded}`, '_blank');
   };
 
+  // Helper for culinary beverage pairings
+  const getPairingSuggestion = (category: string) => {
+    switch (category) {
+      case 'momo':
+        return 'Chilled Tuborg Draught Pitcher or Fresh Iced Peach Tea';
+      case 'coffee':
+        return 'Butter Croissant or Sunrise Breakfast Hashbrowns';
+      case 'fast-casual':
+        return 'Peri-Peri Crinkle Fries & Chilled Gorkha Craft Beer';
+      case 'mains':
+        return 'Crispy Chicken Chilli & Lime Mint Cooler';
+      case 'bar':
+        return 'Chicken Chilli Bites or Wok Schezwan Wings';
+      case 'hookah':
+        return 'Electric Tomorrowland Signature Cocktail or Moroccan Mint Tea';
+      default:
+        return 'Signature Fresh Fruit Smoothie';
+    }
+  };
+
   return (
-    <section id="menu" className="py-20 bg-brand-obsidian relative">
-      {/* Background ambient light */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-brand-neonPurple/10 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="menu" className="py-12 bg-brand-obsidian relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs uppercase tracking-widest text-brand-gold font-bold">
-            Interactive Digital Menu
-          </span>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mt-2">
-            Crafted for Day Hustlers & Night Revelers
-          </h2>
-          <p className="text-gray-300 text-sm sm:text-base mt-3 font-light">
-            Skip clunky PDFs. Explore our full menu with live pricing in Nepalese Rupees (Rs.), 
-            dietary tags, and instant WhatsApp pre-ordering for 20-minute turnaround.
-          </p>
-        </div>
-
         {/* Search & Dietary Filter Controls */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-brand-cardDark p-4 rounded-3xl border border-white/10 shadow-lg">
           {/* Live Search Input */}
@@ -234,7 +238,10 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
                   className="group rounded-3xl bg-brand-cardDark border border-white/5 hover:border-brand-gold/40 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-2xl"
                 >
                   {/* Item Image with Badges */}
-                  <div className="relative h-52 w-full overflow-hidden bg-brand-noir">
+                  <div 
+                    onClick={() => setDetailItem(item)}
+                    className="relative h-52 w-full overflow-hidden bg-brand-noir cursor-pointer"
+                  >
                     <img
                       src={item.image}
                       alt={item.name}
@@ -273,7 +280,7 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
                     {/* Prep Time */}
                     {item.prepTime && (
                       <div className="absolute bottom-2.5 left-3 flex items-center gap-1 text-[11px] font-medium text-gray-300 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded-md">
-                        <Clock className="w-3 h-3 text-amber-400" />
+                        <Clock className="w-3.5 h-3.5 text-amber-400" />
                         <span>Ready in ~{item.prepTime}</span>
                       </div>
                     )}
@@ -283,7 +290,10 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
                   <div className="p-5 flex-1 flex flex-col justify-between">
                     <div>
                       <div className="flex items-start justify-between gap-2 mb-1">
-                        <h3 className="font-bold text-white text-base group-hover:text-brand-gold transition-colors">
+                        <h3 
+                          onClick={() => setDetailItem(item)}
+                          className="font-bold text-white text-base group-hover:text-brand-gold transition-colors cursor-pointer"
+                        >
                           {item.name}
                         </h3>
                       </div>
@@ -292,14 +302,14 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
                           {item.nepaliName}
                         </span>
                       )}
-                      <p className="text-gray-400 text-xs leading-relaxed line-clamp-3">
+                      <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
                         {item.description}
                       </p>
                     </div>
 
                     {/* Tags */}
                     {item.tags && item.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 my-3.5">
+                      <div className="flex flex-wrap gap-1.5 my-3">
                         {item.tags.map((tag) => (
                           <span
                             key={tag}
@@ -348,7 +358,7 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
                         title="Pre-order directly on WhatsApp for fast pickup"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
-                        <span className="hidden sm:inline">WhatsApp Pre-Order</span>
+                        <span className="hidden sm:inline">WhatsApp</span>
                       </button>
                     </div>
                   </div>
@@ -385,8 +395,126 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({
             </button>
           </div>
         )}
+
+        {/* Dish Detail & Pairing Modal */}
+        {detailItem && (
+          <div 
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            onClick={() => setDetailItem(null)}
+          >
+            <div 
+              className="w-full max-w-lg bg-brand-cardDark rounded-3xl border border-brand-gold/40 shadow-2xl overflow-hidden relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setDetailItem(null)}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="relative h-60 w-full overflow-hidden bg-brand-noir">
+                <img
+                  src={detailItem.image}
+                  alt={detailItem.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-cardDark via-transparent to-black/40" />
+
+                <div className="absolute top-4 left-4 flex gap-2">
+                  {detailItem.isPopular && (
+                    <span className="px-3 py-1 rounded-full bg-brand-gold text-black text-xs font-black uppercase">
+                      Crowd Pick
+                    </span>
+                  )}
+                  {detailItem.isSpicy && (
+                    <span className="px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold uppercase">
+                      Spicy
+                    </span>
+                  )}
+                  {detailItem.isVeg && (
+                    <span className="px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase">
+                      Pure Veg
+                    </span>
+                  )}
+                </div>
+
+                <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white font-serif">
+                      {detailItem.name}
+                    </h3>
+                    {detailItem.nepaliName && (
+                      <span className="text-xs text-brand-gold font-serif">
+                        {detailItem.nepaliName}
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-xl font-display font-extrabold text-brand-gold bg-black/80 px-3 py-1 rounded-xl border border-brand-gold/40">
+                    Rs. {detailItem.price}
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                <p className="text-gray-300 text-sm leading-relaxed font-light">
+                  {detailItem.description}
+                </p>
+
+                {/* Beverage Pairing */}
+                <div className="p-3.5 rounded-2xl bg-brand-noir border border-white/5 flex items-start gap-3 text-xs">
+                  <GlassWater className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-brand-gold font-bold block uppercase text-[10px] tracking-wider">
+                      Chef's Suggested Pairing
+                    </span>
+                    <span className="text-gray-300">
+                      {getPairingSuggestion(detailItem.category)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Ready Time & Fast Order */}
+                <div className="flex items-center justify-between text-xs text-gray-400 py-2 border-y border-white/5">
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" />
+                    Kitchen turnaround: ~{detailItem.prepTime || '15 mins'}
+                  </span>
+                  <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    Made Fresh to Order
+                  </span>
+                </div>
+
+                {/* Actions */}
+                <div className="pt-2 flex items-center gap-3">
+                  <button
+                    onClick={() => {
+                      addToCart(detailItem);
+                      setDetailItem(null);
+                    }}
+                    className="flex-1 py-3 rounded-2xl bg-brand-gold text-black font-bold text-xs uppercase tracking-wider hover:opacity-95 shadow-md flex items-center justify-center gap-2"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Add to Pre-Order Tray</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      quickWhatsAppOrder(detailItem);
+                      setDetailItem(null);
+                    }}
+                    className="py-3 px-4 rounded-2xl bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 font-semibold text-xs flex items-center gap-1.5 hover:bg-emerald-600/30 transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
 };
-
